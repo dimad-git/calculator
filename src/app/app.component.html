@@ -1,9 +1,13 @@
+<h1>
+  {{title}}
+</h1>
+
  <div class="calculator">
 
                 <div class="result">
-                    {{ result }}
+                    {{ result ? result : "" }}
                 </div>
-
+				<span>{{ exp }}</span><br>
                 <button (click)="addToCalculation('7')">7</button>
                 <button (click)="addToCalculation('8')">8</button>
                 <button (click)="addToCalculation('9')">9</button>
@@ -23,4 +27,5 @@
                 <button (click)="addToCalculation('.')">.</button>
                 <button (click)="getTotal()">=</button>
                 <button (click)="calculate('+')">+</button>
+                <button (click)="clearResult()" class="red">Clear</button>
             </div>

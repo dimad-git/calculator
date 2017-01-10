@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css'],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    result: number;
+	title: string
+    result: string;
+    exp: string;
     value: any;
     decimal: boolean;
     answer: number;
@@ -16,12 +17,21 @@ export class AppComponent {
     previous_operator: any;
 
     constructor() {
+    	this.title = 'Calculator';
         this.result ='';
+        this.exp ='';
         this.decimal = false;
         this.answer = 0;
         this.total = [];
         this.clear = false;
         this.previous_operator = false;
+    }
+
+    clearResult()
+    {
+		this.result = '';
+        this.clear = true;
+        this.exp = "";
     }
 
     addToCalculation(value) {
@@ -41,14 +51,16 @@ export class AppComponent {
 
         }
 
-        this.result += value;
+        this.result = this.result ? (Number(this.result) + value) : value;
+        this.exp += value;
 
     }
 
     calculate(operator) {
 
-        this.total.push(this.result);
+        this.total.push(Number(this.result));
         this.result = '';
+        this.exp += operator;
 
         if(this.total.length == 2) {
             var a = Number(this.total[0]);
@@ -67,7 +79,7 @@ export class AppComponent {
 
             this.total = [];
             this.total.push(answer);
-            this.result = total;
+            this.result = total.toString();
             this.clear = true;
         }
         else {
@@ -80,6 +92,8 @@ export class AppComponent {
     }
 
     getTotal() {
+    	this.exp += '=';
+    	setTimeout(()=>this.exp = '', 3000);
         var a = Number(this.total[0]);
         var b = Number(this.result);
 
@@ -97,7 +111,7 @@ export class AppComponent {
             return false;
         }
 
-        this.result = total;
+        this.result = total.toString();
         this.total = [];
         this.clear = true;
     }
