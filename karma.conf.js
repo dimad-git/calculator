@@ -40,11 +40,11 @@
 
 {% if widget_data.featured_image.value == 'FeaturedImage' %}
 
-<div class="post_featured_image" style="background:{{ p.widgets.header_background_color.body.value}} url({{ p.featured_image }});"></div>
+<div class="post_featured_image" alt="last-image-blog" style="background:{{ p.widgets.header_background_color.body.value}} url({{ p.featured_image }});"></div>
 
 {% elif widget_data.featured_image.value == 'CustomImage' %}
 
-<div class="post_featured_image" style="background: {{ p.widgets.header_background_color.body.value}} url('{{ p.widgets.custom_background_image.body.src}}');"></div>
+<div class="post_featured_image" alt="blog-header-image" style="background: {{ p.widgets.header_background_color.body.value}} url('{{ p.widgets.custom_background_image.body.src}}');"></div>
 
 {% else %}
 
