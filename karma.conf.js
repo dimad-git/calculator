@@ -1,22 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Explore
- @dimad-git
- Sign out
- Watch 1
-  Star 0  Fork 0 dimad-git/calculator
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Insights  Settings
-Branch: master Find file Copy pathcalculator/karma.conf.js
-2b67dab  5 minutes ago
-@dimad-git dimad-git add alt
-1 contributor
-RawBlameHistory     
-121 lines (79 sloc)  3.33 KB
-
 
 {% set p = contents|first or content %}
 <div class="hot-post-header">
@@ -62,7 +43,7 @@ RawBlameHistory
 
 {% elif widget_data.featured_image.value == 'CustomImage' %}
 
-<div class="post_featured_image" alt="blog-header-image" style="background-color:{{ p.widgets.header_background_color.body.value}};backgraund-image:url('{{ p.widgets.custom_background_image.body.src}}'); background-size:98%!important;"></div>
+<div class="post_featured_image" alt="blog-header-image" style="background-color:{{ p.widgets.header_background_color.body.value}}; background-image:url('{{ p.widgets.custom_background_image.body.src}}'); background-size:98%!important;"></div>
 
 {% else %}
 
